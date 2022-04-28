@@ -1,21 +1,18 @@
 
-import './styles/App.css';
-import {useEffect, useId, useMemo, useRef, useState} from "react";
-import PostList from "./components/PostList";
-import MyButton from "./components/UI/button/MyButton";
-import MyInput from "./components/UI/input/MyInput";
-import PostForm from "./components/PostForm";
-import MySelect from "./components/UI/select/MySelect";
-import PostFilter from "./components/PostFilter";
-import MyModal from "./components/UI/modal/MyModal";
-import {usePosts} from "./components/hooks/usePost";
-import axios from "axios";
-import PostService from "./API/PostService";
-import Loader from "./components/UI/loader/Loader";
-import {useFetching} from "./components/hooks/useFetching";
-import {getPageCount, getPagesArray} from "./utils/pages";
-import Pagination from "./components/UI/pagination/Pagination";
-
+import '../styles/App.css';
+import {useEffect, useState} from "react";
+import PostList from "../components/PostList";
+import MyButton from "../components/UI/button/MyButton";
+import PostForm from "../components/PostForm";
+import PostFilter from "../components/PostFilter";
+import MyModal from "../components/UI/modal/MyModal";
+import {usePosts} from "../components/hooks/usePost";
+import PostService from "../API/PostService";
+import Loader from "../components/UI/loader/Loader";
+import {useFetching} from "../components/hooks/useFetching";
+import {getPageCount} from "../utils/pages";
+import Pagination from "../components/UI/pagination/Pagination";
+import React from 'react';
 function Posts() {
     const [posts, setPosts] = useState([
         {id: 2, title: 'JS', body: 'Js - Lang'},
@@ -101,7 +98,6 @@ function Posts() {
                 totalPages={totalPages}
                 changePage={changePage}
                 page={page}
-
             />
 
         </div>
