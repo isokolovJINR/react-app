@@ -14,7 +14,7 @@ const Post = (props) => {
                 </div>
             </div>
             <div className='post__btns'>
-                <MyButton onClick={() => router(`/posts/${props.post.id}`) }>
+                <MyButton onClick={() => router(`posts/${props.post.id}`) }>
                     {/*props.remove(props.post)*/}
                     Open
                 </MyButton>

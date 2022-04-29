@@ -1,24 +1,27 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import Navbar from "./UI/Navbar/Navbar";
 import {BrowserRouter, Route, Routes as R, Outlet} from "react-router-dom";
-import About from "../pages/About";
-import Posts from "../pages/Posts";
-import PostIdPage from "../pages/PostIdPage";
-import {routes} from "../router/index";
-import Routes from "../router/Routes";
+import PrivateRoutes from "../router/PrivateRoutes";
+import PublicRoutes from "../router/PublicRoutes";
+import {AuthContext} from "../context";
 
 const AppRouter = () => {
+    const {isAuth, setIsAuth} = useContext(AuthContext) ;
+    console.log(isAuth);
     return (
-        <BrowserRouter>
-            <Navbar/>
-            <div className="App">
-                <Routes/>
-                <Outlet />
-            </div>
-
-        </BrowserRouter>
-
-
+        isAuth
+            ?
+                <BrowserRouter>
+                    <div className="App">
+                        <Navbar/><PrivateRoutes/>
+                    </div>
+                </BrowserRouter>
+            :
+                <BrowserRouter>
+                    <div className="App">
+                        <PublicRoutes/>
+                    </div>
+                </BrowserRouter>
     );
 };
 

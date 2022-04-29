@@ -18,10 +18,11 @@ const PostIdPage = () => {
         setComments(response.data);
     })
     useEffect(() => {
+        console.log("Called")
         fetchPostByid(params.id);
-        fetchComments(params.id)
+        fetchComments(params.id);
 
-    }, [])
+    }, [params.id])
     return (
         <div>
             <h1>
